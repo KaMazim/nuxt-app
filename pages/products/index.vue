@@ -8,9 +8,18 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+interface Product {
+    id: number;
+    title: string;
+    price: string;
+    category: string;
+    description: string;
+    image: string;
+}
+
 //  fetch the products
-const { data: products } = await useFetch('https://fakestoreapi.com/products');
+const { data: products } = await useFetch<Product[]>('https://fakestoreapi.com/products');
 
 definePageMeta({
     layout: 'products',

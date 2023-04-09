@@ -18,8 +18,19 @@
     </div>
 </template>
 
-<script setup>
-const { product } = defineProps(['product']);
+<script setup lang="ts">
+import { defineProps } from 'vue';
+
+interface Product {
+    id: number;
+    title: string;
+    price: string;
+    category: string;
+    description: string;
+    image: string;
+}
+
+const { product } = defineProps<{ product: Product }>();
 </script>
 
 <style scoped>
